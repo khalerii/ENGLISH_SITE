@@ -1,0 +1,1385 @@
+/* Общие стили и сброс */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Advent Pro', sans-serif;
+    background: #FEF3D5;
+    color: #525D00;
+    overflow-x: hidden;
+    padding-top: 90px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Основной контейнер для центрирования контента */
+.container {
+    width: 100%;
+    max-width: 1920px;
+    margin: 0 auto;
+    position: relative;
+    background: #FEF3D5;
+}
+
+/* --- Стили навигации (шапки) --- */
+.header-nav {
+    background: #525D00;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1640px;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 10%);
+    z-index: 100;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.header-logo img {
+    height: 53px;
+    width: auto;
+}
+
+.main-nav {
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: white;
+    font-size: 1.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-menu li a:hover {
+    color: #CDF403;
+    transform: translateY(-3px);
+}
+
+/* --- Стилизация кнопки гамбургер-меню для мобильных устройств --- */
+.hamburger-menu-btn {
+    display: none; /* Скрыто по умолчанию на десктопе */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 100;
+}
+
+.hamburger-menu-btn .bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Анимация гамбургер-меню при активации */
+.hamburger-menu-btn.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(-45deg);
+}
+
+.hamburger-menu-btn.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu-btn.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(45deg);
+}
+
+/* --- Секция Hero (первый экран) --- */
+.hero-section {
+    position: relative;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 900px;
+}
+
+.hero-background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.8;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #FEF3D5;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+    max-width: 1640px;
+    margin: 0 auto;
+}
+
+.hero-leroy {
+    font-size: 8vw;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-title {
+    font-size: 10vw;
+    font-family: 'JejuHallasan', cursive;
+    font-weight: 400;
+    line-height: 0.8;
+    margin-top: 1rem;
+}
+
+/* Оверлей для изображения на Hero секции */
+.hero-image-overlay {
+    position: absolute;
+    right: 15%;
+    top: 10%;
+    width: 25vw;
+    height: 35vw;
+    background: #525D00;
+    border-radius: 50px;
+    transform: rotate(10deg);
+    z-index: 1;
+}
+
+.hero-image-overlay img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50px;
+    transform: rotate(-10deg);
+}
+
+/* Общие стили для кнопок */
+.button {
+    background: #CDF403;
+    box-shadow: 0px 4px 20px rgba(205, 244, 3, 0.60);
+    border-radius: 10px;
+    padding: 1.5rem 2.5rem;
+    font-size: 2rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    color: black;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 4rem;
+    white-space: nowrap;
+    max-width: 90%;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 30px rgba(205, 244, 3, 0.8);
+}
+
+/* --- Секция "Обо мне" --- */
+.about-section {
+    padding: 5rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.about-heading {
+    font-size: 4.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #525D00;
+}
+
+.about-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 0 5%;
+}
+
+.about-card {
+    background: #FEF3D5;
+    border: 10px solid #525D00;
+    border-radius: 10px;
+    width: 30%;
+    min-width: 300px;
+    max-width: 528px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    height: 528px;
+}
+
+.about-card-number {
+    font-size: 10rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    color: #525D00;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+.about-card-text {
+    font-size: 2.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.1;
+    color: #525D00;
+    text-align: center;
+}
+
+.about-promo-banner {
+    background: #525D00;
+    padding: 3rem 0;
+    margin-top: 5rem;
+    text-align: center;
+    color: #FEF3D5;
+    font-size: 3.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    width: 100%;
+}
+
+/* --- Секция "Плюсы обучения" --- */
+.advantages-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.advantages-heading {
+    font-size: 6rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 4rem;
+    color: #525D00;
+    line-height: 1.1;
+    padding: 0 5%;
+}
+
+.advantages-content {
+    display: grid;
+    grid-template-columns: minmax(300px, 691px) minmax(300px, 791px);
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0 5%;
+}
+
+.advantages-image-block {
+    max-width: 691px;
+    width: 100%;
+    height: auto;
+}
+
+.advantages-image-block img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.advantages-text-blocks {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 791px;
+    width: 100%;
+    gap: 2rem;
+}
+
+.advantages-card {
+    background: rgba(195, 210, 130, 0.80);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.advantages-card-title {
+    font-size: 2.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #525D00;
+    margin-bottom: 0.5rem;
+}
+
+.advantages-card-text {
+    font-size: 1.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: #525D00;
+    line-height: 1.3;
+}
+
+/* Заголовок для раздела "Global English" */
+.global-english-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.global-english-title {
+    font-size: 3rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #525D00;
+    margin-bottom: 3rem;
+    padding: 0 5%;
+}
+
+/* --- Секция "Тарифы" (для index.html) --- */
+.tariffs-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.tariffs-heading {
+    font-size: 4.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: #525D00;
+}
+
+.tariffs-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 0 5%;
+}
+
+.tariff-card {
+    background: #525D00;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 350px;
+    max-width: 667px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: #FEF3D5;
+    min-height: 700px;
+}
+
+.tariff-card-title {
+    font-size: 4rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.tariff-card-description {
+    font-size: 2rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+}
+
+.tariff-card-price {
+    font-size: 4rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #CDF403;
+    margin-top: auto; /* Прижимает цену к низу карточки */
+}
+
+/* Стилизация кнопки внутри тарифной карточки */
+.tariff-card .button {
+    margin-top: 2rem;
+    font-size: 1.8rem;
+    width: 100%;
+    max-width: 340px;
+    transition: all 0.3s ease;
+    line-height: 1;
+}
+
+.tariff-card .button:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 30px rgba(205, 244, 3, 0.8);
+}
+
+/* --- Футер --- */
+.footer {
+    background: #525D00;
+    border-radius: 10px;
+    padding: 3rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin: 5rem auto 2rem auto;
+    max-width: 1640px;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-logo img {
+    height: 53px;
+    width: auto;
+}
+
+.footer-logo-text {
+    font-size: 2rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+.footer-contact-info {
+    font-size: 1.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-social-icons img {
+    width: 60px;
+    height: 60px;
+}
+
+.footer-copyright {
+    font-size: 1rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* --- Стили для страницы "Услуги" (services.html) --- */
+.services-hero-section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.services-main-heading {
+    font-size: 4.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    color: #525D00;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    max-width: 1364px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services-intro-text {
+    font-size: 2.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.5;
+    color: #525D00;
+    max-width: 1364px;
+    margin: 0 auto 5rem auto;
+    padding: 0 5%;
+    text-align: center;
+}
+
+.services-cards-section {
+    padding: 3rem 0 5rem 0;
+    text-align: center;
+}
+
+.services-cards-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    padding: 0 5%;
+}
+
+.service-card {
+    background: #525D00;
+    border-radius: 10px;
+    width: 45%;
+    min-width: 400px;
+    max-width: 810px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    color: #FEF3D5;
+    position: relative;
+}
+
+.service-card-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.service-card-icon {
+    width: 160px;
+    height: 160px;
+    background: #FEF3D5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.service-card-icon img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+}
+
+.service-card-title {
+    font-size: 20px;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: white;
+}
+
+.service-card-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.service-card-description {
+    font-size: 1.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: lowercase;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.service-card-description .highlight-text {
+    text-transform: uppercase;
+}
+
+.service-card-subtitle {
+    font-size: 1.8rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.service-card-list {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.service-card-list li {
+    font-size: 1.5rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.4;
+    color: white;
+    margin-bottom: 0.8rem;
+    position: relative;
+    padding-left: 25px;
+}
+
+.service-card-list li::before {
+    content: '•';
+    color: #CDF403;
+    font-size: 2em;
+    line-height: 0.5;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.service-card-format {
+    font-size: 1.7rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: white;
+    margin-top: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.service-card-price {
+    font-size: 4rem;
+    font-family: 'Advent Pro', sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: #CDF403;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.service-card-button {
+    margin-top: 0;
+    font-size: 1.8rem;
+    width: 100%;
+    max-width: 480px;
+    padding: 1rem 2rem;
+    text-align: center;
+    align-self: center;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.more-services-button-wrapper {
+    margin-top: 5rem;
+    text-align: center;
+}
+
+.more-services-button {
+    background: #525D00;
+    color: #FEF3D5;
+    font-size: 1.8rem;
+    padding: 1.2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: none;
+    max-width: 300px;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+.more-services-button:hover {
+    box-shadow: 0px 4px 15px rgba(0,0,0,0.4);
+}
+
+/* --- Медиа-запросы для планшетов (max-width: 1199px) --- */
+@media (max-width: 1199px) {
+    body {
+        padding-top: 80px;
+    }
+
+    .header-nav {
+        padding: 0.8rem 5%;
+    }
+
+    /* Стили для страницы услуг на планшетах */
+    .services-main-heading {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .services-intro-text {
+        font-size: 1.5rem;
+        line-height: 1.4;
+        margin-bottom: 4rem;
+    }
+
+    .services-cards-wrapper {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+
+    .service-card {
+        width: 90%;
+        max-width: 600px;
+        min-width: unset;
+        padding: 1.5rem;
+    }
+
+    .service-card-header {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card-icon {
+        width: 100px;
+        height: 100px;
+    }
+
+    .service-card-title {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+    
+    .service-card-text-wrapper {
+        align-items: center;
+        text-align: center;
+    }
+
+    .service-card-description {
+        font-size: 1rem;
+    }
+
+    .service-card-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .service-card-list {
+        text-align: left;
+        width: 90%;
+    }
+
+    .service-card-list li {
+        font-size: 1rem;
+    }
+
+    .service-card-format {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-card-price {
+        font-size: 2.2rem;
+        margin-top: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Стили кнопок на планшетах */
+    .service-card-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: none;
+        width: 100%;
+        align-self: center;
+    }
+
+    .more-services-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: 250px;
+    }
+
+    /* Стили для главной страницы на планшетах */
+    .hero-section {
+        min-height: 700px;
+        padding-top: 3rem;
+    }
+
+    .hero-leroy {
+        font-size: 10vw;
+    }
+
+    .hero-title {
+        font-size: 12vw;
+    }
+
+    .hero-image-overlay {
+        width: 35vw;
+        height: 45vw;
+        right: 10%;
+        top: 15%;
+    }
+
+    /* Стили кнопки на главной странице на планшетах */
+    .button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.8rem;
+        margin-top: 2rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-heading,
+    .tariffs-heading {
+        font-size: 3rem;
+    }
+
+    .about-cards-wrapper {
+        gap: 1.5rem;
+    }
+
+    .about-card {
+        width: 45%;
+        height: auto;
+        min-height: 350px;
+        padding: 1.2rem;
+    }
+
+    .about-card-number {
+        font-size: 7rem;
+    }
+
+    .about-card-text {
+        font-size: 1.8rem;
+    }
+
+    .about-promo-banner {
+        font-size: 2rem;
+        padding: 1.5rem 5%;
+    }
+
+    .advantages-heading {
+        font-size: 3.5rem;
+    }
+
+    .advantages-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        align-items: stretch;
+    }
+
+    .advantages-image-block {
+        width: 100%;
+        height: auto;
+    }
+
+    .advantages-image-block img {
+        height: 100%;
+    }
+
+    .advantages-text-blocks {
+        gap: 1.2rem;
+    }
+
+    .advantages-card {
+        padding: 1.2rem;
+    }
+
+    .advantages-card-title {
+        font-size: 1.5rem;
+    }
+
+    .advantages-card-text {
+        font-size: 0.9rem;
+    }
+
+    .global-english-title {
+        font-size: 2rem;
+    }
+
+    .tariff-card {
+        width: 48%;
+        min-width: 280px;
+        min-height: 550px;
+        padding: 1.5rem;
+    }
+
+    .tariff-card-title {
+        font-size: 2.5rem;
+    }
+
+    .tariff-card-description {
+        font-size: 1.2rem;
+    }
+
+    .tariff-card-price {
+        font-size: 2.5rem;
+    }
+
+    /* Стили кнопки тарифа на планшетах */
+    .tariff-card .button {
+        font-size: 1.1rem;
+        padding: 0.7rem 1.4rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-logo-text {
+        font-size: 1.4rem;
+    }
+
+    .footer-contact-info {
+        font-size: 1.1rem;
+    }
+
+    .footer-social-icons img {
+        width: 45px;
+        height: 45px;
+    }
+
+    /* Гамбургер-меню появляется на планшетах */
+    .hamburger-menu-btn {
+        display: block;
+    }
+
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        background: #525D00;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        visibility: hidden;
+        z-index: 90;
+    }
+
+    /* Активация главного меню */
+    .main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+        visibility: visible;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 0;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu li a {
+        font-size: 1rem;
+        padding: 0.7rem 0.9rem;
+        display: block;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-menu li a:hover {
+        color: #CDF403;
+        transform: translateY(-3px);
+    }
+}
+
+/* --- Медиа-запросы для телефонов (max-width: 767px) --- */
+@media (max-width: 767px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .header-nav {
+        padding: 0.6rem 3%;
+        height: auto;
+    }
+    
+    .header-nav .header-logo img {
+        height: 35px;
+    }
+
+    /* Стили для страницы услуг на телефонах */
+    .services-main-heading {
+        font-size: 1.5rem;
+        line-height: 1.1;
+        margin-bottom: 0.8rem;
+    }
+
+    .services-intro-text {
+        font-size: 0.8rem;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    .services-cards-wrapper {
+        gap: 2rem;
+    }
+
+    .service-card {
+        width: 98%;
+        padding: 0.8rem;
+        min-width: unset;
+    }
+
+    .service-card-header {
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-card-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .service-card-title {
+        font-size: 0.9rem;
+    }
+
+    .service-card-text-wrapper {
+        text-align: center;
+        align-items: center;
+    }
+
+    .service-card-description {
+        font-size: 0.7rem;
+        line-height: 1.1;
+    }
+    
+    .service-card-list {
+        text-align: left;
+        width: 100%;
+        padding-left: 10px;
+    }
+
+    .service-card-list li {
+        font-size: 0.7rem;
+        padding-left: 12px;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-card-list li::before {
+        font-size: 1.3em;
+        left: 0;
+    }
+
+    .service-card-format {
+        font-size: 0.8rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .service-card-price {
+        font-size: 1.5rem;
+        margin-top: 0.3rem;
+        margin-bottom: 0.6rem;
+    }
+
+    /* Стили кнопок на телефонах */
+    .service-card-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: none;
+        width: 100%;
+    }
+
+    .more-services-button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: 200px;
+    }
+
+    /* Стили для главной страницы на телефонах */
+    .hero-section {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .hero-leroy {
+        font-size: 18vw;
+    }
+
+    .hero-title {
+        font-size: 22vw;
+        line-height: 0.7;
+    }
+
+    .hero-image-overlay {
+        display: none; /* Скрыть оверлей изображения на мобильных устройствах */
+    }
+
+    .hero-content {
+        padding: 0 3%;
+    }
+
+    /* Стили кнопки на главной странице на телефонах */
+    .button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        max-width: 200px;
+        white-space: normal;
+        line-height: 1.3;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about-heading,
+    .tariffs-heading {
+        font-size: 1.4rem;
+    }
+
+    .about-cards-wrapper {
+        gap: 0.8rem;
+    }
+
+    .about-card {
+        width: 98%;
+        min-height: 250px;
+        padding: 0.8rem;
+    }
+
+    .about-card-number {
+        font-size: 4rem;
+    }
+
+    .about-card-text {
+        font-size: 0.9rem;
+    }
+
+    .about-promo-banner {
+        font-size: 1rem;
+        padding: 0.8rem 2%;
+        margin-top: 2rem;
+    }
+
+    .advantages-heading {
+        font-size: 1.4rem;
+    }
+
+    .advantages-content {
+        gap: 1rem;
+    }
+
+    .advantages-image-block {
+        width: 98%;
+    }
+
+    .advantages-text-blocks {
+        width: 98%;
+        gap: 0.8rem;
+    }
+
+    .advantages-card {
+        padding: 0.8rem;
+    }
+
+    .advantages-card-title {
+        font-size: 1.1rem;
+    }
+
+    .advantages-card-text {
+        font-size: 0.6rem;
+    }
+
+    .global-english-title {
+        font-size: 1.1rem;
+    }
+
+    .tariffs-cards-wrapper {
+        gap: 0.8rem;
+    }
+
+    .tariff-card {
+        width: 98%;
+        padding: 1rem;
+        min-height: 400px;
+    }
+
+    .tariff-card-title {
+        font-size: 1.4rem;
+    }
+
+    .tariff-card-description {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+
+    .tariff-card-price {
+        font-size: 1.4rem;
+    }
+
+    /* Стили кнопки тарифа на телефонах */
+    .tariff-card .button {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        white-space: normal;
+        line-height: 1.3;
+        max-width: none;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer {
+        padding: 1rem 2%;
+        margin-top: 1.5rem;
+    }
+
+    .footer-logo {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-logo img {
+        height: 30px;
+    }
+
+    .footer-logo-text {
+        font-size: 0.9rem;
+    }
+
+    .footer-contact-info {
+        font-size: 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-social-icons {
+        gap: 0.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-social-icons img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .footer-copyright {
+        font-size: 0.6rem;
+    }
+
+    .main-nav {
+        padding: 0.4rem 0;
+    }
+
+    .nav-menu li a {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.7rem;
+        display: block;
+        transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .nav-menu li a:hover {
+        color: #CDF403;
+        transform: translateY(-3px);
+    }
+}
+
+/* --- Медиа-запрос для очень больших экранов (min-width: 1200px) --- */
+@media (min-width: 1200px) {
+    .hero-content {
+        padding-left: 10%;
+    }
+
+    .advantages-heading {
+        font-size: 7rem;
+    }
+
+    /* Переопределение размеров текста для очень больших экранов */
+    .services-intro-text {
+        font-size: 40px;
+    }
+
+    .service-card-title {
+        font-size: 2rem;
+    }
+    .service-card-description {
+        font-size: 30px;
+    }
+    .service-card-subtitle {
+        font-size: 30px;
+    }
+    .service-card-list li {
+        font-size: 30px;
+    }
+    .service-card-format {
+        font-size: 35px;
+    }
+    .service-card-price {
+        font-size: 60px;
+    }
+    .service-card-button {
+        font-size: 2rem;
+        padding: 1rem 2rem;
+    }
+    .more-services-button {
+        font-size: 2rem;
+        padding: 1.2rem 2.5rem;
+    }
+    .tariff-card .button {
+        font-size: 1.8rem;
+        padding: 1.5rem 2.5rem;
+    }
+}
