@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Полезные материалы - Your English Tutor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Advent+Pro:wght@400;700&family=JejuHallasan&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        /* Внутренние стили для таблицы грамматики */
+        .materials-grammar-table {
+            background: #525D00;
+            border-radius: 100px;
+            padding: 5rem 3%; /* Увеличенный padding для контента */
+            margin: 0 auto;
+            max-width: 1640px;
+            width: 100%;
+            border-collapse: collapse; /* Убирает пробелы между ячейками таблицы */
+            overflow: hidden; /* Скрывает излишки для работы border-radius */
+        }
+
+        .materials-grammar-table th,
+        .materials-grammar-table td {
+            color: white;
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.2;
+            padding: 1.5rem;
+            vertical-align: top;
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Легкие границы для ячеек */
+        }
+
+        .materials-grammar-table th {
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .materials-grammar-table td {
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .materials-grammar-table tr:first-child th {
+            font-size: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .materials-grammar-table tr:nth-child(2) td,
+        .materials-grammar-table tr:nth-child(3) td,
+        .materials-grammar-table tr:nth-child(4) td {
+            font-size: 2rem;
+        }
+
+        .materials-grammar-table tr:nth-child(5) td {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        /* Адаптивные стили для таблицы на различных экранах */
+        @media (max-width: 1199px) {
+            .materials-grammar-table {
+                padding: 3rem 3%;
+                border-radius: 50px;
+            }
+            .materials-grammar-table th {
+                font-size: 2rem;
+            }
+            .materials-grammar-table td {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .materials-grammar-table {
+                padding: 1.5rem 2%;
+                border-radius: 20px;
+                display: block; /* Таблица ведет себя как блок для стекинга элементов */
+                overflow-x: auto; /* Добавляет горизонтальную прокрутку для маленьких экранов */
+                white-space: nowrap; /* Предотвращает перенос ячеек */
+            }
+
+            .materials-grammar-table thead,
+            .materials-grammar-table tbody,
+            .materials-grammar-table th,
+            .materials-grammar-table td,
+            .materials-grammar-table tr {
+                display: block; /* Каждая строка и ячейка ведет себя как блок */
+            }
+
+            .materials-grammar-table th,
+            .materials-grammar-table td {
+                border: none;
+                font-size: 1rem;
+                padding: 0.8rem;
+                text-align: left;
+                white-space: normal; /* Разрешает перенос текста снова */
+            }
+
+            .materials-grammar-table tr {
+                margin-bottom: 1rem;
+                border: 1px solid rgba(255, 255, 255, 0.3);
+                border-radius: 10px;
+            }
+
+            .materials-grammar-table thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px; /* Скрывает заголовок таблицы на мобильных устройствах */
+            }
+
+            .materials-grammar-table td:before {
+                content: attr(data-label); /* Использует атрибут data-label для псевдоэлементов */
+                font-weight: bold;
+                display: inline-block;
+                width: 100px; /* Регулируется по необходимости */
+                margin-right: 10px;
+                color: #CDF403;
+            }
+        }
+
+        /* Стили для основного контента страницы материалов */
+        .materials-hero-section {
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-left: 5%;
+            padding-right: 5%;
+        }
+
+        .materials-main-heading {
+            font-size: 4.5rem;
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 700;
+            color: #525D00;
+            line-height: 1.1;
+            margin-bottom: 2rem;
+            max-width: 1364px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .materials-intro-text {
+            font-size: 2.5rem;
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            line-height: 1.5;
+            color: #525D00;
+            max-width: 1364px;
+            margin: 0 auto 5rem auto;
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .materials-section-heading {
+            font-size: 3.75rem; /* 60px */
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1;
+            color: #FEF3D5;
+            text-align: center;
+            margin-bottom: 2.5rem; /* 40px */
+        }
+        
+        .materials-section-description {
+            font-size: 2.5rem; /* 40px */
+            font-family: 'Advent Pro', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.25; /* 50px */
+            color: white;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 1364px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 5%;
+        }
+
+        .materials-section-wrapper {
+            background: #525D00;
+            border-radius: 100px;
+            padding: 5rem 5%;
+            margin: 5rem auto;
+            max-width: 1640px;
+            width: 100%;
+        }
+
+        .materials-button-wrapper {
+            margin-top: 3rem;
+            text-align: center; /* Центрирует сам flex-контейнер */
+        }
+
+        .materials-video-group {
+            display: inline-flex; /* Используется для центрирования группы как единого блока */
+            align-items: center; /* Выравнивание элементов по центру по вертикали */
+            gap: 1.5rem; /* Отступ между кнопкой и иконкой */
+            flex-wrap: wrap; /* Позволяет элементам переноситься на новую строку при нехватке места */
+            justify-content: center; /* Центрирует элементы внутри flex-контейнера при переносе */
+        }
+
+        /* Инлайн-стили для кнопки и иконки, чтобы выполнить требование о внутренних стилях */
+        .materials-video-button {
+            background: #FF0000;
+            border-radius: 20px;
+            padding: 10px 20px;
+            display: flex; /* Flexbox для содержимого кнопки */
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 60px;
+            font-family: Advent Pro;
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 60px;
+            word-wrap: break-word;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap; /* Предотвращает перенос текста в кнопке */
+        }
+
+        .materials-video-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+        }
+
+        .materials-video-icon {
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0; /* Предотвращает сжимание иконки */
+        }
+
+        /* Адаптивные стили для элементов страницы материалов */
+        @media (max-width: 767px) {
+            .materials-video-button {
+                font-size: 1.2rem;
+                padding: 8px 15px;
+                line-height: 1.2;
+            }
+            .materials-video-icon {
+                width: 50px;
+                height: 50px;
+            }
+            .materials-video-group {
+                gap: 1rem; /* Уменьшает отступ на мобильных */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header-nav">
+            <div class="header-logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Логотип">
+                </a>
+            </div>
+            <button class="hamburger-menu-btn" aria-label="Переключить навигационное меню">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav class="main-nav">
+                <ul class="nav-menu">
+                    <li><a href="services.html">Услуги</a></li>
+                    <li><a href="materials.html">Полезные материалы</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="about.html">Обо мне</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="materials-hero-section">
+                <h1 class="materials-main-heading">Полезные материалы для изучения <br/>английского языка</h1>
+                <p class="materials-intro-text">
+                    Здесь вы найдете подборку полезных ресурсов, советов и инструментов, которые помогут вам улучшить английский язык вне занятий.
+                </p>
+            </section>
+
+            <section class="materials-section-wrapper">
+                <h2 class="materials-section-heading">Грамматика</h2>
+                <p class="materials-section-description">
+                    Краткие и понятные объяснения сложных грамматических тем (например, "Разница между Present Perfect и Past Simple", "Как использовать артикли a/an/the").
+                </p>
+
+                <table class="materials-grammar-table">
+                    <thead>
+                        <tr>
+                            <th>Признак</th>
+                            <th>Past Simple</th>
+                            <th>Present Perfect</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-label="Когда?">Когда?</td>
+                            <td data-label="В конкретный момент в прошлом">В конкретный момент в прошлом</td>
+                            <td data-label="В неопределённый момент в прошлом, или действие продолжается">В неопределённый момент в прошлом, или действие продолжается</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Связь с настоящим">Связь с настоящим</td>
+                            <td data-label="Нет прямой связи">Нет прямой связи</td>
+                            <td data-label="Есть прямая связь (результат, опыт, незавершённый период)">Есть прямая связь (результат, опыт, незавершённый период)</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Маркеры времени">Маркеры времени</td>
+                            <td data-label="yesterday, last week, 2 years ago, in 2005...">yesterday, last week, 2 years ago, in 2005...</td>
+                            <td data-label="just, already, yet, ever, never, for, since, recently...">just, already, yet, ever, never, for, since, recently...</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Пример">Пример</td>
+                            <td data-label="I went to Paris last year.">I went to Paris last year.</td>
+                            <td data-label="I have been to Paris.">I have been to Paris.</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="materials-button-wrapper">
+                    <div class="materials-video-group">
+                        <a href="https://youtu.be/oDzO_Scb89U?si=9zMBGUDHiaQVMaKy" class="materials-video-button" style="background: #FF0000; border-radius: 20px; padding: 10px 20px; display: flex; justify-content: center; align-items: center; color: white; font-size: 60px; font-family: Advent Pro; font-weight: 700; text-transform: uppercase; line-height: 60px; word-wrap: break-word; text-decoration: none; white-space: nowrap;">
+                            смотреть видео
+                        </a>
+                        <img class="materials-video-icon" src="images/youtube.png" alt="Иконка видео">
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-logo">
+                <img src="images/logo.png" alt="Логотип в подвале" style="filter: brightness(1.5);">
+                <div class="footer-logo-text">Лера • Your English Tutor</div>
+            </div>
+            <div class="footer-contact-info">
+                Контактная информация:<br/>Телефон: +7 (964) 352-57-30<br/>Email: khalerii@mail.ru
+            </div>
+            <div class="footer-social-icons">
+                <a href="https://www.instagram.com/khalerio?igsh=cXIxODYzNnl5amVo&utm_source=qr" target="_blank"><img src="images/instagram.png" alt="Иконка Instagram"></a>
+                <a href="https://t.me/khalerii" target="_blank"><img src="images/telegram.png" alt="Иконка Telegram"></a>
+                <a href="https://wa.me/79643525730" target="_blank"><img src="images/whatsapp.png" alt="Иконка WhatsApp"></a>
+            </div>
+            <div class="footer-copyright">© 2025 Все права защищены.</div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
+            const navMenu = document.querySelector('.main-nav');
+
+            hamburgerBtn.addEventListener('click', function() {
+                navMenu.classList.toggle('active'); // Переключение класса 'active' для отображения/скрытия меню
+                hamburgerBtn.classList.toggle('active'); // Переключение класса 'active' для анимации кнопки
+            });
+        });
+    </script>
+</body>
+</html>
